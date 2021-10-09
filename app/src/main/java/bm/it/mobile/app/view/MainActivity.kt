@@ -9,14 +9,20 @@ import bm.it.mobile.app.viewModel.MainViewModel
 class MainActivity : ComponentActivity() {
 
     private lateinit var viewModel: MainViewModel
+    private lateinit var compose: MainViewCompose
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val compose = MainViewCompose(viewModel)
+        init()
 
         setContent {
             compose.setUpView()
         }
+    }
+
+    private fun init() {
+        viewModel = MainViewModel()
+        compose = MainViewCompose(viewModel)
     }
 }
