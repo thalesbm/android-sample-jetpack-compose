@@ -1,0 +1,5 @@
+{
+  "generator-android-app": {
+    "appPackage": "android-sample-jetpack-compose"
+  }
+}
