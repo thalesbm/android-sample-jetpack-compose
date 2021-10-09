@@ -11,8 +11,8 @@ class MainViewModel : BaseViewModel() {
 
     fun getItems() {
         val list = mutableListOf<String>()
-        list.add("Tela Simples")
-        list.add("Lista")
+        list.add("Arquitetura em Tela Simples")
+        list.add("Arquitetura em Lista")
         state.value = MainViewModelState.GetList(list)
     }
 }
