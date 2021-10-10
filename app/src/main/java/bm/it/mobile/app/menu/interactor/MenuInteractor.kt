@@ -2,5 +2,5 @@ package bm.it.mobile.app.menu.interactor
 
 interface MenuInteractor {
 
-    suspend fun fetchMenu(): MenuInteractorState.List
+    suspend fun fetchMenu(): MenuInteractorState
 }

@@ -22,6 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bm.it.mobile.app.menu.viewModel.MenuViewModel
 import bm.it.mobile.app.menu.viewModel.MenuViewModelState
+import bm.it.mobile.commons.components.Colors.DARK_GRAY
+import bm.it.mobile.commons.components.Colors.getColor
 import bm.it.mobile.commons.components.Theme
 
 class MenuViewCompose(private val viewModel: MenuViewModel) {
@@ -46,7 +48,7 @@ class MenuViewCompose(private val viewModel: MenuViewModel) {
             SetAppBar()
             SetTitle()
             Spacer(modifier = Modifier.height(16.dp))
-            Divider(color = Color.Gray, thickness = 1.dp)
+            Divider(color = getColor(DARK_GRAY), thickness = 1.dp)
             SetList(mutableListOf("sdasdas", "dasdsadas"))
         }
     }
@@ -67,7 +69,7 @@ class MenuViewCompose(private val viewModel: MenuViewModel) {
     private fun SetTitle() {
         Text(
             text = "Arquitetura MVVM com Compose",
-            color = Color.Gray,
+            color = getColor(DARK_GRAY),
             textAlign = TextAlign.Center,
             fontSize = 20.sp,
             modifier = Modifier
@@ -84,7 +86,7 @@ class MenuViewCompose(private val viewModel: MenuViewModel) {
         ) {
             items(options) {
                 DisplayList(item = it)
-                Divider(color = Color.Gray, thickness = 1.dp)
+                Divider(color = getColor(DARK_GRAY), thickness = 1.dp)
             }
         }
     }
@@ -110,7 +112,7 @@ class MenuViewCompose(private val viewModel: MenuViewModel) {
                 Icon(
                     imageVector = Icons.Sharp.ArrowForwardIos,
                     contentDescription = null,
-                    tint = Color.Gray,
+                    tint = getColor(DARK_GRAY),
                     modifier = Modifier
                         .height(Dp(20F))
                         .width(Dp(20F))

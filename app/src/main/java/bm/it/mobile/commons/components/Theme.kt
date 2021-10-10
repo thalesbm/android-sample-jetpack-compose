@@ -6,7 +6,7 @@ import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
 import bm.it.mobile.commons.components.Colors.ORANGE
-import bm.it.mobile.commons.components.Colors.ORANGE_DARK
+import bm.it.mobile.commons.components.Colors.DARK_ORANGE
 import bm.it.mobile.commons.components.Colors.getColor
 
 object Theme {
@@ -28,13 +28,13 @@ object Theme {
 
     private val DarkColorPalette = darkColors(
         primary = getColor(ORANGE),
-        primaryVariant = getColor(ORANGE_DARK),
+        primaryVariant = getColor(DARK_ORANGE),
         secondary = getColor(ORANGE)
     )
 
     private val LightColorPalette = lightColors(
         primary = getColor(ORANGE),
-        primaryVariant = getColor(ORANGE_DARK),
+        primaryVariant = getColor(DARK_ORANGE),
         secondary = getColor(ORANGE)
     )
 }
