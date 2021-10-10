@@ -16,6 +16,7 @@ class MenuView(private val viewModel: MenuViewModel) {
 
     @Composable
     fun SetUpView() {
+        // entender como essa linha é responsabel por escutar as alteraçoes de status
         val state = viewModel.state.value
 
         Theme.SetCustomTheme {
