@@ -1,4 +1,4 @@
-package bm.it.mobile.app.view.layout
+package bm.it.mobile.app.menu.view.ui
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
@@ -11,7 +11,8 @@ import androidx.compose.material.TopAppBar
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.sharp.ArrowForwardIos
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.livedata.observeAsState
+import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -19,13 +20,22 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import bm.it.mobile.app.viewModel.MainViewModel
+import bm.it.mobile.app.menu.viewModel.MenuViewModel
+import bm.it.mobile.app.menu.viewModel.MenuViewModelState
+import bm.it.mobile.commons.layout.Theme
 
-class MainViewCompose(private val viewModel: MainViewModel) {
+class MenuViewCompose(private val viewModel: MenuViewModel) {
 
     @Composable
     fun SetUpView() {
-        val uiState = viewModel.viewState.observeAsState()
+        Theme.SetCustomTheme {
+            UpdateView()
+        }
+    }
+
+    @Composable
+    private fun UpdateView() {
+        val currentState: State<MenuViewModelState> = viewModel.viewState.collectAsState()
 
         Column(
             modifier = Modifier
