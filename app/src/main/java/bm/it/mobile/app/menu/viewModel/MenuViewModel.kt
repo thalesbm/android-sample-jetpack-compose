@@ -14,10 +14,10 @@ class MenuViewModel(private val interactor: MenuInteractor) : BaseViewModel() {
 
     fun fetchMenu() {
         launch {
-            displayLoading(true)
+            _state.value = MenuViewModelState(isLoading = true)
+
             val result = interactor.fetchMenu()
             handleFetchMenu(result)
-            displayLoading(false)
         }
     }
 
@@ -29,14 +29,10 @@ class MenuViewModel(private val interactor: MenuInteractor) : BaseViewModel() {
     }
 
     private fun updateList(list: MutableList<String>) {
-        _state.value = MenuViewModelState(list = list)
+        _state.value = MenuViewModelState(list = list, isLoading = false)
     }
 
     private fun displayErrorPage() {
-        _state.value = MenuViewModelState(isError = true)
-    }
-
-    private fun displayLoading(isLoading: Boolean) {
-        _state.value = MenuViewModelState(isLoading = isLoading)
+        _state.value = MenuViewModelState(isError = true, isLoading = false)
     }
 }
