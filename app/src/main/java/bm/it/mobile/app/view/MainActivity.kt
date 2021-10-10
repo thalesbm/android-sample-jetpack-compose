@@ -1,13 +1,13 @@
 package bm.it.mobile.app.view
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import bm.it.mobile.app.view.layout.MainViewCompose
 import bm.it.mobile.app.viewModel.MainViewModel
 import bm.it.mobile.commons.layout.Theme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var compose: MainViewCompose
