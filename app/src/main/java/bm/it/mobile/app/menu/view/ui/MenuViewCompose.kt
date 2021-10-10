@@ -22,7 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bm.it.mobile.app.menu.viewModel.MenuViewModel
 import bm.it.mobile.app.menu.viewModel.MenuViewModelState
-import bm.it.mobile.commons.layout.Theme
+import bm.it.mobile.commons.components.Theme
 
 class MenuViewCompose(private val viewModel: MenuViewModel) {
 

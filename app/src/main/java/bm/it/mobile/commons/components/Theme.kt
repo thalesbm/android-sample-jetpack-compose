@@ -1,11 +1,13 @@
-package bm.it.mobile.commons.layout
+package bm.it.mobile.commons.components
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
-import bm.it.mobile.commons.layout.Colors.getColor
+import bm.it.mobile.commons.components.Colors.ORANGE
+import bm.it.mobile.commons.components.Colors.ORANGE_DARK
+import bm.it.mobile.commons.components.Colors.getColor
 
 object Theme {
 
@@ -25,14 +27,14 @@ object Theme {
     }
 
     private val DarkColorPalette = darkColors(
-        primary = getColor("FF7200"),
-        primaryVariant = getColor("E66700"),
-        secondary = getColor("FF7200")
+        primary = getColor(ORANGE),
+        primaryVariant = getColor(ORANGE_DARK),
+        secondary = getColor(ORANGE)
     )
 
     private val LightColorPalette = lightColors(
-        primary = getColor("FF7200"),
-        primaryVariant = getColor("E66700"),
-        secondary = getColor("FF7200")
+        primary = getColor(ORANGE),
+        primaryVariant = getColor(ORANGE_DARK),
+        secondary = getColor(ORANGE)
     )
 }
