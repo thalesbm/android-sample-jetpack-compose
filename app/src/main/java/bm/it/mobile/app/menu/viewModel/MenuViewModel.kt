@@ -12,19 +12,31 @@ class MenuViewModel(private val interactor: MenuInteractor) : BaseViewModel() {
     private val _state = mutableStateOf(MenuViewModelState())
     val state: State<MenuViewModelState> = _state
 
-    init {
-        fetchMenu()
+    fun fetchMenu() {
+        launch {
+            displayLoading(true)
+            val result = interactor.fetchMenu()
+            handleFetchMenu(result)
+            displayLoading(false)
+        }
     }
 
-    private fun fetchMenu() {
-        launch {
-            when (val result = interactor.fetchMenu()) {
-                is MenuInteractorState.List -> updateList(result.list)
-            }
+    private fun handleFetchMenu(result: MenuInteractorState) {
+        when (result) {
+            is MenuInteractorState.List -> updateList(result.list)
+            is MenuInteractorState.Error -> displayErrorPage()
         }
     }
 
     private fun updateList(list: MutableList<String>) {
         _state.value = MenuViewModelState(list = list)
+    }
+
+    private fun displayErrorPage() {
+        _state.value = MenuViewModelState(isError = true)
+    }
+
+    private fun displayLoading(isLoading: Boolean) {
+        _state.value = MenuViewModelState(isLoading = isLoading)
     }
 }

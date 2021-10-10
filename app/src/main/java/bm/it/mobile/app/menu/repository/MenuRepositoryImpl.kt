@@ -1,8 +1,13 @@
 package bm.it.mobile.app.menu.repository
 
+import kotlinx.coroutines.delay
+
 class MenuRepositoryImpl : MenuRepository {
 
-    override fun fetchMenu(): MutableList<String> {
+    override suspend fun fetchMenu(): MutableList<String> {
+
+        delay(5000L)
+
         val list = mutableListOf<String>()
         list.add("Arquitetura em Tela Simples")
         list.add("Arquitetura em Lista")

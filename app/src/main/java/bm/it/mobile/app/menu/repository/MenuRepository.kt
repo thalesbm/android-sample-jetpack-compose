@@ -2,5 +2,5 @@ package bm.it.mobile.app.menu.repository
 
 interface MenuRepository {
 
-    fun fetchMenu(): MutableList<String>
+    suspend fun fetchMenu(): MutableList<String>
 }
