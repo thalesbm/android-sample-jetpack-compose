@@ -1,8 +1,9 @@
 package bm.it.mobile.app.menu.view.ui.states
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.Divider
 import androidx.compose.material.Icon
 import androidx.compose.material.Text
@@ -12,53 +13,42 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import bm.it.mobile.app.menu.view.MenuEvents
 import bm.it.mobile.commons.components.Colors
 
 @Composable
-fun UpdateList(options: List<String>) {
-    SetTitle()
-    Spacer(modifier = Modifier.height(16.dp))
+fun UpdateList(options: List<String>, events: MenuEvents) {
     Divider(color = Colors.getColor(Colors.DARK_GRAY), thickness = 1.dp)
-    SetList(options)
+    SetList(options, events)
 }
 
 @Composable
-private fun SetTitle() {
-    Text(
-        text = "Arquitetura MVVM com Compose",
-        color = Colors.getColor(Colors.DARK_GRAY),
-        textAlign = TextAlign.Center,
-        fontSize = 20.sp,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(Dp(0F), Dp(16F), Dp(0F), Dp(0F))
-    )
-}
-
-@Composable
-private fun SetList(options: List<String>) {
+private fun SetList(options: List<String>, events: MenuEvents) {
     LazyColumn(
         modifier = Modifier
             .fillMaxWidth()
     ) {
-        items(options) {
-            DisplayList(item = it)
+        itemsIndexed(items = options, itemContent = { position, dataItem ->
+            Spacer(modifier = Modifier.height(8.dp))
+            DisplayItem(item = dataItem, position, events)
+            Spacer(modifier = Modifier.height(8.dp))
             Divider(color = Colors.getColor(Colors.DARK_GRAY), thickness = 1.dp)
-        }
+        })
     }
 }
 
 @Composable
-private fun DisplayList(item: String) {
+private fun DisplayItem(item: String, position: Int, events: MenuEvents) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
-            .padding(Dp(16F))
             .fillMaxWidth()
+            .clickable {
+                events.pressedItem(position)
+            }
     ) {
         Text(
             text = item,
