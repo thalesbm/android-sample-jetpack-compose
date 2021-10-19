@@ -13,7 +13,8 @@ class BanksInteractorImpl(private val repository: BanksRepository) : BanksIntera
         if (Random.nextBoolean()) {
             BanksInteractorState.List(list)
         } else {
-            BanksInteractorState.Error
+            // BanksInteractorState.Error
+            BanksInteractorState.List(list)
         }
     }
 }

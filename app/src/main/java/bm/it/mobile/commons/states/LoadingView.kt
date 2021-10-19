@@ -1,4 +1,4 @@
-package bm.it.mobile.app.menu.view.ui.states
+package bm.it.mobile.commons.states
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.CircularProgressIndicator

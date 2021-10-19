@@ -4,6 +4,7 @@ import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import bm.it.mobile.app.banks.interactor.BanksInteractor
 import bm.it.mobile.app.banks.interactor.BanksInteractorState
+import bm.it.mobile.app.banks.model.BankModel
 import bm.it.mobile.commons.viewModel.BaseViewModel
 import kotlinx.coroutines.launch
 
@@ -14,7 +15,10 @@ class BanksViewModel(private val interactor: BanksInteractor) : BaseViewModel() 
 
     fun fetchBanks() {
         launch {
+            _state.value = BanksViewModelState(isLoading = true)
+
             val result = interactor.fetchBanks()
+            handleFetchBanks(result)
         }
     }
 
@@ -25,7 +29,7 @@ class BanksViewModel(private val interactor: BanksInteractor) : BaseViewModel() 
         }
     }
 
-    private fun updateList(list: MutableList<String>) {
+    private fun updateList(list: MutableList<BankModel>) {
         _state.value = BanksViewModelState(list = list, isLoading = false)
     }
 

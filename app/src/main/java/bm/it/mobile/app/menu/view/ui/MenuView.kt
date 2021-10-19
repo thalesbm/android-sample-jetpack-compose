@@ -10,7 +10,7 @@ import androidx.compose.ui.graphics.Color
 import bm.it.mobile.app.menu.view.MenuEvents
 import bm.it.mobile.app.menu.view.ui.states.DisplayError
 import bm.it.mobile.app.menu.view.ui.states.SetTitle
-import bm.it.mobile.app.menu.view.ui.states.ShowLoading
+import bm.it.mobile.commons.states.ShowLoading
 import bm.it.mobile.app.menu.view.ui.states.UpdateList
 import bm.it.mobile.app.menu.viewModel.MenuViewModel
 import bm.it.mobile.commons.components.Theme

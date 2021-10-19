@@ -35,6 +35,6 @@ class BanksActivity: AppCompatActivity(), BanksEvents {
     }
 
     private fun fetchItems() {
-        viewModel.fetchItems()
+        viewModel.fetchBanks()
     }
 }
