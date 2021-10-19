@@ -9,8 +9,8 @@ class MenuRepositoryImpl : MenuRepository {
         delay(2000L)
 
         val list = mutableListOf<String>()
-        list.add("Arquitetura em Tela Simples")
-        list.add("Arquitetura em Lista")
+        list.add("Lista de Bancos")
+        list.add("---")
         return list
     }
 }

@@ -32,9 +32,7 @@ private fun SetList(options: List<String>, events: MenuEvents) {
             .fillMaxWidth()
     ) {
         itemsIndexed(items = options, itemContent = { position, dataItem ->
-            Spacer(modifier = Modifier.height(8.dp))
             DisplayItem(item = dataItem, position, events)
-            Spacer(modifier = Modifier.height(8.dp))
             Divider(color = Colors.getColor(Colors.DARK_GRAY), thickness = 1.dp)
         })
     }
@@ -54,6 +52,7 @@ private fun DisplayItem(item: String, position: Int, events: MenuEvents) {
             text = item,
             color = Color.Gray,
             fontSize = 14.sp,
+            modifier = Modifier.padding(16.dp)
         )
         Row(
             horizontalArrangement = Arrangement.End,
@@ -65,8 +64,9 @@ private fun DisplayItem(item: String, position: Int, events: MenuEvents) {
                 contentDescription = null,
                 tint = Colors.getColor(Colors.DARK_GRAY),
                 modifier = Modifier
-                    .height(Dp(20F))
-                    .width(Dp(20F))
+                    .padding(16.dp)
+                    .height(20.dp)
+                    .width(20.dp)
             )
         }
     }
